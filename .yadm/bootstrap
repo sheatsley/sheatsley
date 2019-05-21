@@ -1,1 +1,61 @@
-echo "Hello"
+# Move to the user's home directory
+echo "Moving to $HOME"
+cd $HOME
+
+# Get the OS
+PLATFORM=$(uname -s)
+
+# Change behaviour depending on the platform
+if [ $PLATFORM = "Darwin" ]; then
+
+    # Check if brew is installed, and install it if needed
+    BREW_PATH=$(which brew)
+    if [ -z "$BREW_PATH" ]; then
+        echo "Installing Homebrew"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    # Source zsh profile file to ensure paths are correct
+    source .zshrc
+
+    # Install homebrew-bundle and all the brew packages, casks and mas apps
+    brew bundle --verbose --file=.brewbundle
+
+    # Install the pip packages from ~/.pip_requirements
+    pip3 install -r .pip_requirements
+
+    # Set zsh as the default shell
+    echo "Current shell is $CURRENT_SHELL"
+    if [ "$CURRENT_SHELL" != "zsh" ]; then
+        echo "Change your default shell to zsh? (Y/n)"
+        read $ANSWER
+        if [[ "$ANSWER" =~ ^[Yy]$ ]]; then
+            sudo sh -c "echo $(which zsh) >> /etc/shells"
+            chsh -s $(which zsh)
+        fi
+    fi
+
+    # Convert the YADM repo from https to ssh
+    YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
+    if [ -z "$YADM_REMOTE" ]; then
+        echo "Changing remote url of yadm repo"
+        yadm remote set-url origin git@github.com:AdrienCos/parametrica.git
+    fi
+
+    # Remove the temporary yadm install if required
+    if [ -d "$HOME/.yadm-project" ]; then
+        echo "Remove the temporary YADM install?"
+        read $ANSWER
+        if [[ "$ANSWER" =~ ^[Yy]$ ]]; then
+            echo "Deleting the temporary yadm repo"
+            rm -rf "$HOME/.yadm-project"
+        fi
+    fi
+
+    if [ $YADM_STASHED == "yes" ]; then
+        yadm stash pop
+    fi
+
+else 
+    echo "This bootstrap file does not support Linux yet, aborting."
+fi
