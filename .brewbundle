@@ -1,0 +1,4 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+# Yet Another Dotfiles Manager
+brew "yadm"
