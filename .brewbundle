@@ -1,4 +1,10 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+# Mac App Store command-line interface
+brew "mas"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
 # Yet Another Dotfiles Manager
 brew "yadm"
+mas "com.apple.configurator.ui", id: 1037126344
+mas "com.tinyspeck.slackmacgap", id: 803453959
