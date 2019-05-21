@@ -1,8 +1,12 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
+# Distributed revision control system
+brew "git"
 # Mac App Store command-line interface
 brew "mas"
 # Interpreted, interactive, object-oriented programming language
@@ -11,8 +15,12 @@ brew "python"
 brew "yadm"
 # UNIX shell (command interpreter)
 brew "zsh"
+cask "font-droid-sans-mono-for-powerline"
+cask "gpg-suite"
 cask "mactex-no-gui"
 cask "microsoft-office"
+cask "visual-studio-code"
+cask "yubico-yubikey-manager"
 mas "com.apple.configurator.ui", id: 1037126344
 mas "com.apple.garageband10", id: 682658836
 mas "com.apple.iMovieApp", id: 408981434
