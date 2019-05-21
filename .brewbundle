@@ -9,6 +9,8 @@ brew "mas"
 brew "python"
 # Yet Another Dotfiles Manager
 brew "yadm"
+# UNIX shell (command interpreter)
+brew "zsh"
 cask "mactex-no-gui"
 cask "microsoft-office"
 mas "com.apple.configurator.ui", id: 1037126344
