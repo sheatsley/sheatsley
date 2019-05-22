@@ -1,5 +1,8 @@
 [user]
-	name = Ryan Sheatsley
-	email = sheatsley@psu.edu
+  name = Ryan Sheatsley
+  email = sheatsley@psu.edu
+  signingkey = AF5888815A509644
+[commit]
+  gpgSign = True
 [url "https://github.com/"]
   insteadOf = gh:
