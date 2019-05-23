@@ -15,20 +15,17 @@ if [ $PLATFORM = "Darwin" ]; then
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
-    # Source zsh profile file to ensure paths are correct
-    source .zshrc
-
     # Install homebrew-bundle and all the brew packages, casks and mas apps
     brew bundle --verbose --file=.brewbundle
 
     # Install the pip packages from ~/.pip_requirements
-    pip3 install -r .pip_requirements
+    pip3 install -r .piprequirements
 
     # Convert the YADM repo from https to ssh
     YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
     if [ -z "$YADM_REMOTE" ]; then
         echo "Changing remote url of yadm repo"
-        yadm remote set-url origin git@github.com:AdrienCos/parametrica.git
+        yadm remote set-url origin git@github.com:sheatsley/sheatsley.git
     fi
 
     # Install Oh My Zsh
