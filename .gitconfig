@@ -1,6 +1,6 @@
 [user]
   name = Ryan Sheatsley
-  email = sheatsley@psu.edu
+  email = ryan@sheatsley.me
   signingkey = AF5888815A509644
 [commit]
   gpgSign = True
