@@ -7,19 +7,32 @@ tap "homebrew/core"
 brew "docker"
 # Distributed revision control system
 brew "git"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg", link: false
+# Command-line tools for OpenPGP-related operations
+brew "hopenpgp-tools"
 # Mac App Store command-line interface
 brew "mas"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Interpreted, interactive, object-oriented programming language
 brew "python"
 # Yet Another Dotfiles Manager
 brew "yadm"
+# YubiKey personalization library and tool
+brew "ykpers"
+# Tool for managing your YubiKey configuration
+brew "ykman"
 # UNIX shell (command interpreter)
 brew "zsh"
+cask "camtasia"
 cask "font-droid-sans-mono-for-powerline"
 cask "gpg-suite"
+cask "lastpass"
 cask "mactex-no-gui"
 cask "microsoft-office"
+cask "slack"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
-mas "com.apple.configurator.ui", id: 1037126344
-mas "com.tinyspeck.slackmacgap", id: 803453959
+mas "Adblock Plus", id: 1432731683
+mas "Apple Configurator 2", id: 1037126344
