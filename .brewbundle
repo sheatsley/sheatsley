@@ -34,6 +34,6 @@ cask "microsoft-office"
 cask "slack"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
-cask "zoom"
+cask "zoomus"
 mas "Adblock Plus", id: 1432731683
 mas "Apple Configurator 2", id: 1037126344
