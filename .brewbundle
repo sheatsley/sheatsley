@@ -3,8 +3,6 @@ tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
 # Distributed revision control system
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
@@ -26,8 +24,10 @@ brew "ykman"
 # UNIX shell (command interpreter)
 brew "zsh"
 cask "camtasia"
+cask "docker"
 cask "font-droid-sans-mono-for-powerline"
 cask "gpg-suite"
+cask "iterm2"
 cask "lastpass"
 cask "mactex-no-gui"
 cask "microsoft-office"
