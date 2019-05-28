@@ -24,6 +24,7 @@ brew "ykman"
 # UNIX shell (command interpreter)
 brew "zsh"
 cask "camtasia"
+cask "discord"
 cask "docker"
 cask "font-droid-sans-mono-for-powerline"
 cask "gpg-suite"
