@@ -37,6 +37,9 @@ if [ $PLATFORM = "Darwin" ]; then
     # Install Vundle
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+    # Install vim-autopep8
+    git clone https://github.com/tell-k/vim-autopep8.git ~/.vim/bundle/Autopep8
+
     # Install YouCompleteMe
     git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/YouCompleteMe
     cd ~/.vim/bundle/YouCompleteMe
