@@ -3,18 +3,28 @@ tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+# Cross-platform make
+brew "cmake"
 # Distributed revision control system
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg", link: false
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Command-line tools for OpenPGP-related operations
 brew "hopenpgp-tools"
-# Mac App Store command-line interface
-brew "mas"
-# Pinentry for GPG on Mac
-brew "pinentry-mac"
 # Interpreted, interactive, object-oriented programming language
 brew "python"
+# GUI for vim, made for macOS
+brew "macvim"
+# Mac App Store command-line interface
+brew "mas"
+# Platform built on V8 to build network applications
+brew "node"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Safe, concurrent, practical language
+brew "rust"
 # Yet Another Dotfiles Manager
 brew "yadm"
 # YubiKey personalization library and tool
@@ -31,8 +41,8 @@ cask "gpg-suite"
 cask "lastpass"
 cask "mactex-no-gui"
 cask "microsoft-office"
+cask "mono-mdk"
 cask "slack"
-cask "visual-studio-code"
 cask "yubico-yubikey-manager"
 cask "zoomus"
 mas "Adblock Plus", id: 1432731683
