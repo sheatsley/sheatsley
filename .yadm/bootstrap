@@ -31,6 +31,18 @@ if [ $PLATFORM = "Darwin" ]; then
     # Install Oh My Zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+    # Restore terminal settings
+    cp ~/.terminalsettings ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Install Vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    # Install YouCompleteMe
+    git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/YouCompleteMe
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --all
+    vim +PluginInstall +qall
+
 else 
     echo "This bootstrap file does not support Linux yet, aborting."
 fi
