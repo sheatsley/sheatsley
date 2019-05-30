@@ -29,7 +29,7 @@ set number                        " show line numbers
 set showcmd                       " show command in bottom bar
 set showmatch                     " highlight matching [{()}]
 set splitbelow                    " cause all splits to happen below (including term)
-set termwinsize=15x0              " set terminal window size exactly 15 rows
+set termwinsize=20x0              " set terminal window size exactly N rows
 set visualbell                    " use a visual over auditory bells
 set wildmenu                      " visual autocomplete for command menu
 syntax on                         " sets color of text based on category of terms
