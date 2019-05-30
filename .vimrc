@@ -16,6 +16,7 @@ au FileType python setlocal
 "         <|> EDITING <|>
 set autoindent                    " copy indent from current line on <ENTER>
 set expandtab                     " replace <TAB> with <SPACE>
+set mouse=a                       " enable mouse scrolling
 set nostartofline                 " cursor maintains column position across lines
 set scrolloff=35                  " always keep <scrolloff> lines above & below the cursor
 set shiftwidth=2                  " text is indented <shiftwidth> columns w/ '<<' & '>>'
