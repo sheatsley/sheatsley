@@ -28,6 +28,8 @@ set laststatus=2                  " always display status line
 set number                        " show line numbers
 set showcmd                       " show command in bottom bar
 set showmatch                     " highlight matching [{()}]
+set splitbelow                    " cause all splits to happen below (including term)
+set termwinsize=15x0              " set terminal window size exactly 15 rows
 set visualbell                    " use a visual over auditory bells
 set wildmenu                      " visual autocomplete for command menu
 syntax on                         " sets color of text based on category of terms
@@ -45,6 +47,7 @@ set foldnestmax=10                " maximum number of folds
 set foldmethod=indent             " fold based on indent level
 
 "  	      <|> PERSONAL <|>
+set shell=/usr/local/bin/zsh      " set terminal to zsh
 let g:autopep8_indent_size=2      " use tensorflow 2-space pep8 guidelines
 command! W write                  " vim should do this by default
 cmap w!! w !sudo tee %            " save with root privileges (command-line)
