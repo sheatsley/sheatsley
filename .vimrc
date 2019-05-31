@@ -2,7 +2,7 @@ set nocompatible                  " Vundle dependencies
 set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
-Plugin 'Valloric/YouCompleteMe'   " applies PEP 8 style to current file
+Plugin 'Valloric/YouCompleteMe'   " 
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
@@ -14,7 +14,8 @@ au FileType python setlocal
   \   --indent-size\ 2\ -         " ... with 2-space indent (like tensorflow) 
 
 "         <|> EDITING <|>
-set autoindent                    " copy indent from current line on <ENTER>
+filetype indent on                " copy indent from current line on <ENTER>
+set clipboard=unnamed             " copy/paste from the system clipboard
 set expandtab                     " replace <TAB> with <SPACE>
 set mouse=a                       " enable mouse scrolling
 set nostartofline                 " cursor maintains column position across lines
@@ -52,6 +53,6 @@ set shell=/usr/local/bin/zsh      " set terminal to zsh
 let g:autopep8_indent_size=2      " use tensorflow 2-space pep8 guidelines
 command! W write                  " vim should do this by default
 cmap w!! w !sudo tee %            " save with root privileges (command-line)
-nmap pep8 gggqG                   " pep8 the whole damn thing
-nmap /\ :noh                      " redraw screen without highlighting 
-nmap fix gqip                     " because I keep forgetting this command
+cnoreabbrev pep :norm! gggqG      " pep8 the whole damn thing
+cnoreabbrev fix :norm! gqip       " because I keep forgetting this command
+map /\ :noh                       " redraw screen without highlighting 
