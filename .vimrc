@@ -10,8 +10,8 @@ au Filetype tex,markdown,plaintext setlocal
   \ textwidth=79                  " wrap at 79 characters when writing
   \ spell spelllang=en_us         " enable spellcheck too
 au FileType python setlocal
-  \ formatprg=autopep8\           " use pep8 as the formatter for Python...
-  \   --indent-size\ 2\ -         " ... with 2-space indent (like tensorflow) 
+  \ formatprg=autopep8\ 
+  \--indent-size\ 2\ -            " use pep8 as the formatter for Python
 
 "         <|> EDITING <|>
 filetype indent on                " copy indent from current line on <ENTER>
@@ -50,7 +50,6 @@ set foldmethod=indent             " fold based on indent level
 
 "  	      <|> PERSONAL <|>
 set shell=/usr/local/bin/zsh      " set terminal to zsh
-let g:autopep8_indent_size=2      " use tensorflow 2-space pep8 guidelines
 command! W write                  " vim should do this by default
 cmap w!! w !sudo tee %            " save with root privileges (command-line)
 cnoreabbrev pep :norm! gggqG      " pep8 the whole damn thing
