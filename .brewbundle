@@ -21,16 +21,14 @@ brew "macvim"
 brew "mas"
 # Platform built on V8 to build network applications
 brew "node"
-# YubiKey personalization library and tool
-brew "ykpers"
-# Yubico pluggable authentication module
-brew "pam_yubico"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Safe, concurrent, practical language
 brew "rust"
 # Yet Another Dotfiles Manager
 brew "yadm"
+# YubiKey personalization library and tool
+brew "ykpers"
 # Tool for managing your YubiKey configuration
 brew "ykman"
 # UNIX shell (command interpreter)
@@ -45,6 +43,7 @@ cask "mactex-no-gui"
 cask "microsoft-office"
 cask "mono-mdk"
 cask "slack"
+cask "vmware-fusion"
 cask "yubico-yubikey-manager"
 cask "zoomus"
 mas "Adblock Plus", id: 1432731683
