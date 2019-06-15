@@ -2,13 +2,13 @@ set nocompatible                  " Vundle dependencies
 set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and initialize
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
-Plugin 'Valloric/YouCompleteMe'   " 
+Plugin 'Valloric/YouCompleteMe'   " code-completion for Vim
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
-au Filetype tex,markdown,text setlocal
-  \ textwidth=79                  " wrap at 79 characters when writing
-  \ spell spelllang=en_us         " enable spellcheck too
+au Filetype tex,markdown,text setlocal 
+  \ textwidth=79                 
+  \ spell spelllang=en_us         " wrap at 79 characters & use spellchecking
 au FileType python setlocal
   \ formatprg=autopep8\ 
   \--indent-size\ 2\ -            " use pep8 as the formatter for Python
