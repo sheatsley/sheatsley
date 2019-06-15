@@ -6,7 +6,7 @@ Plugin 'Valloric/YouCompleteMe'   "
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
-au Filetype tex,markdown,plaintext setlocal
+au Filetype tex,markdown,text setlocal
   \ textwidth=79                  " wrap at 79 characters when writing
   \ spell spelllang=en_us         " enable spellcheck too
 au FileType python setlocal
