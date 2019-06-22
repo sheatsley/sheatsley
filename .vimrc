@@ -55,3 +55,4 @@ cmap w!! w !sudo tee %            " save with root privileges (command-line)
 cnoreabbrev pep :norm! gggqG      " pep8 the whole damn thing
 cnoreabbrev fix :norm! gqip       " because I keep forgetting this command
 map /\ :noh                       " redraw screen without highlighting 
+hi Search ctermbg=215 ctermfg=130 " makes search highlights usable
