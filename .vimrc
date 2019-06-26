@@ -42,12 +42,6 @@ set ignorecase                    " use case-insensitive search...
 set incsearch                     " search as characters are entered
 set smartcase                     " ... except when using capitals
 
-"  	      <|> FOLDING <|>
-set foldenable                    " enable folding (za is the magic command)
-set foldlevelstart=10             " only very nested blocks of code are folded
-set foldnestmax=10                " maximum number of folds
-set foldmethod=indent             " fold based on indent level
-
 "  	      <|> PERSONAL <|>
 set shell=/usr/local/bin/zsh      " set terminal to zsh
 command! W write                  " vim should do this by default
@@ -55,4 +49,11 @@ cmap w!! w !sudo tee %            " save with root privileges (command-line)
 cnoreabbrev pep :norm! gggqG      " pep8 the whole damn thing
 cnoreabbrev fix :norm! gqip       " because I keep forgetting this command
 map /\ :noh                       " redraw screen without highlighting 
-hi Search ctermbg=215 ctermfg=130 " makes search highlights usable
+if has('gui_running')             " use terminal settings if we're in a GUI
+  colorscheme sheatsley             
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+  let Powerline_symbols = 'fancy'
+endif
+
+"  	      <|> TEMPORARY <|>
+let g:pyindent_searchpair_timeout=10 " vim/issues/1098
