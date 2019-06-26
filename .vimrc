@@ -54,6 +54,3 @@ if has('gui_running')             " use terminal settings if we're in a GUI
   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
   let Powerline_symbols = 'fancy'
 endif
-
-"  	      <|> TEMPORARY <|>
-let g:pyindent_searchpair_timeout=10 " vim/issues/1098
