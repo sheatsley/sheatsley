@@ -10,8 +10,6 @@ call vundle#end()
 au Filetype tex,markdown,text setlocal 
     \ textwidth=79                 
     \ spell spelllang=en_us       " wrap at 79 characters & use spellchecking
-au FileType python setlocal
-    \ formatprg=black\ -          " use black as the formatter for Python
 
 "         <|> EDITING <|>
 filetype indent on                " copy indent from current line on <ENTER>
