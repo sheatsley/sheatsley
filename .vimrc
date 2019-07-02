@@ -3,15 +3,15 @@ set rtp+=~/.vim/bundle/Vundle.vim " set the runtime path to include Vundle and i
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'   " code-completion for Vim
+Plugin 'python/black'             " 'The uncompromising Python code formatter'
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
 au Filetype tex,markdown,text setlocal 
-  \ textwidth=79                 
-  \ spell spelllang=en_us         " wrap at 79 characters & use spellchecking
+    \ textwidth=79                 
+    \ spell spelllang=en_us       " wrap at 79 characters & use spellchecking
 au FileType python setlocal
-  \ formatprg=autopep8\ 
-  \--indent-size\ 2\ -            " use pep8 as the formatter for Python
+    \ formatprg=black\ -          " use black as the formatter for Python
 
 "         <|> EDITING <|>
 filetype indent on                " copy indent from current line on <ENTER>
@@ -20,9 +20,9 @@ set expandtab                     " replace <TAB> with <SPACE>
 set mouse=a                       " enable mouse scrolling
 set nostartofline                 " cursor maintains column position across lines
 set scrolloff=35                  " always keep <scrolloff> lines above & below the cursor
-set shiftwidth=2                  " text is indented <shiftwidth> columns w/ '<<' & '>>'
-set softtabstop=2                 " number of spaces in a <TAB> when editing
-set tabstop=2                     " number of visual spaces per <TAB> in a file
+set shiftwidth=4                  " text is indented <shiftwidth> columns w/ '<<' & '>>'
+set softtabstop=4                 " number of spaces in a <TAB> when editing
+set tabstop=4                     " number of visual spaces per <TAB> in a file
 
 "  	      <|> UI CONFIG <|>
 set cmdheight=2                   " set command window height to 2 lines
@@ -30,8 +30,6 @@ set laststatus=2                  " always display status line
 set number                        " show line numbers
 set showcmd                       " show command in bottom bar
 set showmatch                     " highlight matching [{()}]
-set splitbelow                    " cause all splits to happen below (including term)
-set termwinsize=30x0              " set terminal window size exactly N rows
 set visualbell                    " use a visual over auditory bells
 set wildmenu                      " visual autocomplete for command menu
 syntax on                         " sets color of text based on category of terms
@@ -43,14 +41,12 @@ set incsearch                     " search as characters are entered
 set smartcase                     " ... except when using capitals
 
 "  	      <|> PERSONAL <|>
-set shell=/usr/local/bin/zsh      " set terminal to zsh
 command! W write                  " vim should do this by default
 cmap w!! w !sudo tee %            " save with root privileges (command-line)
-cnoreabbrev pep :norm! gggqG      " pep8 the whole damn thing
 cnoreabbrev fix :norm! gqip       " because I keep forgetting this command
 map /\ :noh                       " redraw screen without highlighting 
 if has('gui_running')             " use terminal settings if we're in a GUI
-  colorscheme sheatsley             
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
-  let Powerline_symbols = 'fancy'
+    colorscheme sheatsley             
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+    let Powerline_symbols = 'fancy'
 endif
