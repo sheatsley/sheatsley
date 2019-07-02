@@ -1,6 +1,5 @@
 autopep8
 argparse
-black
 keras
 matplotlib
 numpy
