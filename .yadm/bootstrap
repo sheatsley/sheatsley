@@ -35,16 +35,20 @@ if [ $PLATFORM = "Darwin" ]; then
     cp ~/.terminalsettings ~/Library/Preferences/com.apple.Terminal.plist
 
     # Install Vundle
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/
 
-    # Install vim-autopep8
-    git clone https://github.com/tell-k/vim-autopep8.git ~/.vim/bundle/Autopep8
+    # Install black
+    git clone https://github.com/python/black ~/.vim/bundle/
 
     # Install YouCompleteMe
-    git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/YouCompleteMe
+    git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --all
+
+    # Install all vim plugins
     vim +PluginInstall +qall
+
+    
 
 else 
     echo "This bootstrap file does not support Linux yet, aborting."
