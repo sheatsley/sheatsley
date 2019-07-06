@@ -4,6 +4,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'   " code-completion for Vim
 Plugin 'python/black'             " 'The uncompromising Python code formatter'
+Plugin 'tpope/vim-fugitive'       " '... may very well be the best Git wrapper of all time.'
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
