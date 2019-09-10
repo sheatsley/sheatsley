@@ -29,7 +29,8 @@ set laststatus=2                            " always display status line
 set number                                  " show line numbers
 set showcmd                                 " show command in bottom bar
 set showmatch                               " highlight matching [{()}]
-set statusline+=%{FugitiveStatusline()}\ %f " show git status on statusline
+set statusline=%{FugitiveStatusline()}\     " show git status on statusline
+set statusline+=%<%f\ %=%-14.(%l,%c%V%)\ %P " add path, row, col, and buffer percentage to statusline
 set visualbell                              " use a visual over auditory bells
 set wildmenu                                " visual autocomplete for command menu
 syntax on                                   " sets color of text based on category of terms
