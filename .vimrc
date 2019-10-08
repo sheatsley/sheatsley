@@ -50,4 +50,6 @@ if has('gui_running')                       " use terminal settings if we're in 
     colorscheme sheatsley             
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
     let Powerline_symbols = 'fancy'
+else
+    colorscheme default
 endif
