@@ -56,3 +56,4 @@ cask "zotero"
 mas "Adblock Plus", id: 1432731683
 mas "Apple Configurator 2", id: 1037126344
 mas "Notability", id: 736189492
+mas "Xcode", id: 497799835
