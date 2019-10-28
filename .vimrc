@@ -3,7 +3,7 @@ set rtp+=~/.vim/bundle/Vundle.vim           " set the runtime path to include Vu
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'             " code-completion for Vim
-Plugin 'python/black'                       " 'The uncompromising Python code formatter'
+Plugin 'psf/black'                       " 'The uncompromising Python code formatter'
 Plugin 'tpope/vim-fugitive'                 " '... may very well be the best Git wrapper of all time.'
 call vundle#end()
 
