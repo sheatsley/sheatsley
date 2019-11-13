@@ -745,7 +745,7 @@
     "Green Component" : 0.1491314172744751
   },
   "Ambiguous Double Width" : false,
-  "Blur Radius" : 2,
+  "Blur Radius" : 19.677829552664974,
   "Ansi 0 Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -787,7 +787,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.77254901960784317
   },
-  "Transparency" : 0.18844582804568522,
+  "Transparency" : 0.033086135786802029,
   "HotKey Activated By Modifier" : false,
   "Background Color" : {
     "Red Component" : 0,
