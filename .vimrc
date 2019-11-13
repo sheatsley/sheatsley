@@ -1,16 +1,17 @@
 set nocompatible                            " Vundle dependencies
 set rtp+=~/.vim/bundle/Vundle.vim           " set the runtime path to include Vundle and initialize
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'               " let Vundle manage Vundle, required
-Plugin 'Valloric/YouCompleteMe'             " code-completion for Vim
-Plugin 'psf/black'                          " 'The uncompromising Python code formatter'
-Plugin 'tpope/vim-fugitive'                 " '... may very well be the best Git wrapper of all time.'
+Plugin 'VundleVim/Vundle.vim'               " The plugin-manager for Vim
+Plugin 'lifepillar/vim-solarized8'          " Optimized Solarized colorschemes.
+Plugin 'psf/black'                          " The uncompromising Python code formatter'
+Plugin 'tpope/vim-fugitive'                 " A Git wrapper so awesome, it should be illegal
+Plugin 'Valloric/YouCompleteMe'             " A code-completion for Vim
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
 au Filetype tex,markdown,text setlocal        
     \ textwidth=79                 
-    \ spell spelllang=en_us                 " wrap at 79 characters & use spellchecking
+    \ spell spelllang=en                    " wrap at 79 characters & use spellchecking
 
 "         <|> EDITING <|>
 filetype indent on                          " copy indent from current line on <ENTER>
@@ -46,10 +47,4 @@ command! W write                            " vim should do this by default
 cmap w!! w !sudo tee %                      " save with root privileges (command-line)
 cnoreabbrev fix :norm! gqip                 " because I keep forgetting this command
 map /\ :noh                                 " redraw screen without highlighting 
-if has('gui_running')                       " use terminal settings if we're in a GUI
-    colorscheme sheatsley             
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
-    let Powerline_symbols = 'fancy'
-else
-    colorscheme default
-endif
+colorscheme sheatsley                       " use personal colorscheme
