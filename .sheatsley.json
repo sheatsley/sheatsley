@@ -37,7 +37,7 @@
   "Guid" : "9908272D-D43A-4CC5-8517-B1DFE721E6B7",
   "Rows" : 89,
   "Default Bookmark" : "No",
-  "Right Option Key Sends" : 0,
+  "Right Option Key Sends" : 2,
   "Cursor Guide Color" : {
     "Red Component" : 0.70213186740875244,
     "Color Space" : "sRGB",
@@ -108,7 +108,7 @@
   "Non Ascii Font" : "Monaco 12",
   "Vertical Spacing" : 1,
   "Use Bold Font" : false,
-  "Option Key Sends" : 0,
+  "Option Key Sends" : 2,
   "Selected Text Color" : {
     "Red Component" : 0.57647058823529407,
     "Color Space" : "sRGB",
@@ -496,7 +496,7 @@
     "Green Component" : 0.58039215686274515
   },
   "HotKey Window Floats" : true,
-  "Right Option Key Sends" : 0,
+  "Right Option Key Sends" : 2,
   "Show Status Bar" : true,
   "Character Encoding" : 4,
   "Selection Color" : {
@@ -902,7 +902,7 @@
   "Command" : "",
   "Terminal Type" : "xterm-256color",
   "Horizontal Spacing" : 1,
-  "Option Key Sends" : 0,
+  "Option Key Sends" : 2,
   "Only The Default BG Color Uses Transparency" : false,
   "HotKey Window Animates" : true,
   "HotKey Modifier Flags" : 524288,
