@@ -318,9 +318,17 @@
         "class" : "iTermStatusBarSpringComponent",
         "configuration" : {
           "knobs" : {
-            "iTermStatusBarSpringComponentSizeMultipleKey" : 2
+            "iTermStatusBarSpringComponentSizeMultipleKey" : 2,
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -330,9 +338,16 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -342,9 +357,16 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -354,9 +376,16 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -365,9 +394,17 @@
         "class" : "iTermStatusBarSpringComponent",
         "configuration" : {
           "knobs" : {
-            "iTermStatusBarSpringComponentSizeMultipleKey" : 2
+            "iTermStatusBarSpringComponentSizeMultipleKey" : 2,
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -535,9 +572,17 @@
         "class" : "iTermStatusBarSpringComponent",
         "configuration" : {
           "knobs" : {
-            "iTermStatusBarSpringComponentSizeMultipleKey" : 4
+            "iTermStatusBarSpringComponentSizeMultipleKey" : 4,
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -547,9 +592,16 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -559,9 +611,16 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -571,9 +630,16 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
@@ -582,9 +648,17 @@
         "class" : "iTermStatusBarSpringComponent",
         "configuration" : {
           "knobs" : {
-            "iTermStatusBarSpringComponentSizeMultipleKey" : 4
+            "iTermStatusBarSpringComponentSizeMultipleKey" : 4,
+            "shared background color" : {
+              "Red Component" : 0,
+              "Color Space" : "sRGB",
+              "Blue Component" : 0.21176470588235294,
+              "Alpha Component" : 1,
+              "Green Component" : 0.16862745098039217
+            }
           },
           "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
             "algorithm" : 0
           }
         }
