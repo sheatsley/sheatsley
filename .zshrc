@@ -26,4 +26,4 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 # Enable docker remote
-export DOCKER_HOST="ssh://cse"
+export DOCKER_HOST="ssh://siis"
