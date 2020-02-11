@@ -27,17 +27,23 @@
     "Green Component" : 0.63137254901960782
   },
   "Normal Font" : "DejaVuSansMonoPowerline 11",
-  "Ansi 3 Color" : {
-    "Red Component" : 0.85882352941176465,
+  "Link Color" : {
+    "Red Component" : 0,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.24705882352941178,
+    "Blue Component" : 0.73423302173614502,
     "Alpha Component" : 1,
-    "Green Component" : 0.6705882352941176
+    "Green Component" : 0.35916060209274292
   },
-  "Guid" : "9908272D-D43A-4CC5-8517-B1DFE721E6B7",
+  "Ansi 0 Color" : {
+    "Red Component" : 0,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.21176470588235294,
+    "Alpha Component" : 1,
+    "Green Component" : 0.16862745098039217
+  },
   "Rows" : 89,
   "Default Bookmark" : "No",
-  "Right Option Key Sends" : 2,
+  "Guid" : "9908272D-D43A-4CC5-8517-B1DFE721E6B7",
   "Cursor Guide Color" : {
     "Red Component" : 0.70213186740875244,
     "Color Space" : "sRGB",
@@ -131,7 +137,7 @@
   },
   "Thin Strokes" : 4,
   "Use Italic Font" : true,
-  "Unlimited Scrollback" : false,
+  "Unlimited Scrollback" : true,
   "Keyboard Map" : {
     "0xf700-0x260000" : {
       "Action" : 10,
@@ -448,6 +454,13 @@
     "Green Component" : 0.37647058823529411
   },
   "Horizontal Spacing" : 1,
+  "Ansi 3 Color" : {
+    "Red Component" : 0.85882352941176465,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.24705882352941178,
+    "Alpha Component" : 1,
+    "Green Component" : 0.6705882352941176
+  },
   "Ansi 2 Color" : {
     "Red Component" : 0.66274509803921566,
     "Color Space" : "sRGB",
@@ -455,27 +468,8 @@
     "Alpha Component" : 1,
     "Green Component" : 0.73725490196078436
   },
-  "Ansi 4 Color" : {
-    "Red Component" : 0.36078431372549019,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.96862745098039216,
-    "Alpha Component" : 1,
-    "Green Component" : 0.69411764705882351
-  },
-  "Ansi 5 Color" : {
-    "Red Component" : 0.91764705882352937,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.6705882352941176,
-    "Alpha Component" : 1,
-    "Green Component" : 0.38823529411764707
-  },
-  "Link Color" : {
-    "Red Component" : 0,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.73423302173614502,
-    "Alpha Component" : 1,
-    "Green Component" : 0.35916060209274292
-  },
+  "Right Option Key Sends" : 2,
+  "Custom Directory" : "No",
   "Ansi 7 Color" : {
     "Red Component" : 0.96078431372549022,
     "Color Space" : "sRGB",
@@ -497,17 +491,29 @@
     "Alpha Component" : 1,
     "Green Component" : 0.45490196078431372
   },
-  "Ansi 0 Color" : {
-    "Red Component" : 0,
+  "Ansi 4 Color" : {
+    "Red Component" : 0.36078431372549019,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.21176470588235294,
+    "Blue Component" : 0.96862745098039216,
     "Alpha Component" : 1,
-    "Green Component" : 0.16862745098039217
+    "Green Component" : 0.69411764705882351
   },
-  "Custom Directory" : "No"
+  "Ansi 5 Color" : {
+    "Red Component" : 0.91764705882352937,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.6705882352941176,
+    "Alpha Component" : 1,
+    "Green Component" : 0.38823529411764707
+  }
 },
 {
-  "Thin Strokes" : 4,
+  "Ansi 5 Color" : {
+    "Red Component" : 0.91764705882352937,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.6705882352941176,
+    "Alpha Component" : 1,
+    "Green Component" : 0.38823529411764707
+  },
   "Working Directory" : "\/Users\/sheatsley",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -702,7 +708,7 @@
     "Blue Component" : 0.63137254901960782,
     "Green Component" : 0.63137254901960782
   },
-  "Unlimited Scrollback" : false,
+  "Unlimited Scrollback" : true,
   "Custom Command" : "No",
   "HotKey Key Code" : 49,
   "Keyboard Map" : {
@@ -1019,15 +1025,9 @@
 
   ],
   "Visual Bell" : true,
-  "ASCII Ligatures" : false,
   "Custom Directory" : "No",
-  "Ansi 5 Color" : {
-    "Red Component" : 0.91764705882352937,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.6705882352941176,
-    "Alpha Component" : 1,
-    "Green Component" : 0.38823529411764707
-  }
+  "Thin Strokes" : 4,
+  "ASCII Ligatures" : false
 }
 ]
 }
