@@ -1,6 +1,6 @@
 # configuration variables
 KEYID="D97737F91189673C"
-ITERM=$HOME/Library/Application\ Support/iTerm2/DynamicProfiles
+ITERM=$HOME"/Library/Application Support/iTerm2/DynamicProfiles"
 GITHUB=$HOME/repos
 
 # move to home directory
@@ -17,7 +17,7 @@ fi
 brew bundle --verbose --file=.brewbundle
 
 # add public gpg key to keyring
-if gpg -k $KEYID; then
+if ! gpg -k $KEYID; then
     echo "Downloading gpg public key $KEYID ..."
     gpg --card-edit --command-fd 0 <<< fetch
 fi
@@ -29,27 +29,31 @@ if ! gpg -k $KEYID | grep "ultimate"; then
 fi
 
 # install the remaining applications through submodules
-echo "Installing:\-nohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
+echo "Installing:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
 yadm submodule update --init
 yadm submodule update --remote
 
-# prep configuration files
-echo "Configuring:\n-iTerm profile\n-OSX\n-GitHub repos"
-mkdir -p $ITERM && ln -s $HOME/.sheatsley.json $ITERM/sheatsley.json 
-while [ read -r REPO ]; do
+# prep configuration files and repos
+echo "Configuring:\n-iTerm profiles\n-Mac OS\n-GitHub repos"
+if [ ! -f $ITERM/sheatsley.json ]; then
+    mkdir -p $ITERM && ln -s $HOME/.sheatsley.json $ITERM/sheatsley.json 
+fi
+while IFS= read -r REPO
+do
     git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
 done < $HOME/.github
-while [IFS=# read -r MACOS CMT ]; do
+while IFS=# read -r MACOS CMT;
+do
     echo $CMT && $MACOS
 done < $HOME/.macos
 
 # install ycm semantic support
 echo "Installing YCM semantic support..."
-cd $HOME/.vim/bundle/YouCompletMe && ./install.py --all && cd $HOME
+#cd $HOME/.vim/bundle/YouCompleteMe && ./install.py --all && cd $HOME
 
 # install all vim plugins
 echo "Installing vim plugins..."
-vim +PluginInstall +qall > /dev/null
+vim +PluginInstall +qall > /dev/null 2>&1
 
 # convert yadm repo from https to ssh
 YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
@@ -60,11 +64,10 @@ fi
 
 # decrypt yadm files
 echo "Decrypting files, please insert Yubikey..."
-yadm git-crypt unlock
+#yadm git-crypt unlock
 
 # replace shell
-### FIX ME - add $
-if [ -z "DOCKER_HOST" ]; then
+if [ -z "$DOCKER_HOST" ]; then
     echo "Replacing shell..."
-    exec zsh
+    #exec zsh
 fi
