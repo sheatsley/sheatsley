@@ -57,7 +57,7 @@ vim +PluginInstall +qall > /dev/null
 YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
 if [ -z "$YADM_REMOTE" ]; then
     echo "Changing remote url of yadm repo..."
-    yadm remote set-url origin git@github.com:sheatsley/sheatsley.git
+    yadm remote set-url origin git@github.com:sheatsley/dotfiles.git
 fi
 
 # decrypt yadm files
