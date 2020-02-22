@@ -1,0 +1,22 @@
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -int 1          	               # do not create .ds_store files on network volumes
+defaults write com.apple.dock orientation left							       # place dock on the left
+defaults write com.apple.dock persistent-apps -array						       # remove all apps from the dock
+defaults write com.apple.dock show-recents -int 0						       # do not show recent apps in dock
+defaults write com.apple.dock tilesize -int 31							       # set dock icons to 31 pixels
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1 		       # enable tap to click for trackpads
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1       # enable three finger drag for trackpads
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2 # enable tap with three fingers
+defaults write com.apple.finder FXEnableExtensionChangeWarning -int 0   	      		       # disable file extension change warning
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -int 0				       # do not show external drives on desktop
+defaults write com.apple.LaunchServices LSQuarantine -int 0 		         	               # disable "are you sure you want to open this application?" 
+defaults write com.apple.Safari Homepage -string about:blank 					       # set safari homepage to about:blank
+defaults write com.apple.Safari IncludeDevelopMenu -int 1 					       # include developer menu in safari
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -int 1				       # show full url in safari address bar
+defaults write com.apple.screensaver askForPassword -int 1  		     	                       # ask for password after sleep or screensaver...
+defaults write com.apple.screensaver askForPasswordDelay -int 0		                               # ... immediately
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -int 1				       # automatically update mas apps
+defaults write NSGlobalDomain AppleShowAllExtensions -int 1                       		       # show filename extensions in Finder
+defaults write NSGlobalDomain AppleWindowTabbingMode -string 'manual'				       # set tabs when opening documents to manual
+defaults write NSGlobalDomain InitialKeyRepeat -int 15						       # use a very short delay before key repeat starts
+defaults write NSGlobalDomain KeyRepeat -int 2			                      		       # use fast keyboard repeat rate
+for APP in Dock Finder Safari SystemUIServer; do killall "${APP}" > /dev/null 2>&1; done   	       # killing affected applications...
