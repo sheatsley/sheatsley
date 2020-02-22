@@ -1,7 +1,6 @@
 # configuration variables
 KEYID="D97737F91189673C"
 ITERM=$HOME/Library/Application\ Support/iTerm2/DynamicProfiles
-VIM=$HOME/.vim/colors
 GITHUB=$HOME/repos
 
 # move to home directory
@@ -35,8 +34,7 @@ yadm submodule update --init
 yadm submodule update --remote
 
 # prep configuration files
-echo "Configuring:\n-vim colorscheme\n-iTerm profile\n-OSX\n-GitHub repos"
-mkdir -p $VIM && ln -s $HOME/.sheatsley.vim $VIM/sheatsley.vim
+echo "Configuring:\n-iTerm profile\n-OSX\n-GitHub repos"
 mkdir -p $ITERM && ln -s $HOME/.sheatsley.json $ITERM/sheatsley.json 
 while [ read -r REPO ]; do
     git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
