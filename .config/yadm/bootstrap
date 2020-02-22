@@ -1,55 +1,72 @@
-# Move to the user's home directory
-echo "Moving to $HOME"
+# configuration variables
+KEYID="D97737F91189673C"
+ITERM=$HOME/Library/Application\ Support/iTerm2/DynamicProfiles
+VIM=$HOME/.vim/colors
+GITHUB=$HOME/repos
+
+# move to home directory
+echo "Moving to $HOME ..."
 cd $HOME
 
-# Get the OS
-PLATFORM=$(uname -s)
+# install brew if needed
+BREW_PATH=$(which brew)
+if [ -z "$BREW_PATH" ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
-# Change behaviour depending on the platform
-if [ $PLATFORM = "Darwin" ]; then
+# install homebrew-bundle, packages, casks and mas apps
+brew bundle --verbose --file=.brewbundle
 
-    # Check if brew is installed, and install it if needed
-    BREW_PATH=$(which brew)
-    if [ -z "$BREW_PATH" ]; then
-        echo "Installing Homebrew"
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
+# add public gpg key to keyring
+if gpg -k $KEYID; then
+    echo "Downloading gpg public key $KEYID ..."
+    gpg --card-edit --command-fd 0 <<< fetch
+fi
 
-    # Install homebrew-bundle and all the brew packages, casks and mas apps
-    brew bundle --verbose --file=.brewbundle
+# set gpg trust to ultimate
+if ! gpg -k $KEYID | grep "ultimate"; then
+    echo "Setting $KEYID trust to ultimate..."
+    echo -e "5\n\y\n" | gpg --command-fd 0 --edit-key $KEYID trust
+fi
 
-    # Install the pip packages from ~/.pip_requirements
-    pip3 install -r .piprequirements
+# install the remaining applications through submodules
+echo "Installing:\-nohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
+yadm submodule update --init
+yadm submodule update --remote
 
-    # Convert the YADM repo from https to ssh
-    YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
-    if [ -z "$YADM_REMOTE" ]; then
-        echo "Changing remote url of yadm repo"
-        yadm remote set-url origin git@github.com:sheatsley/sheatsley.git
-    fi
+# prep configuration files
+echo "Configuring:\n-vim colorscheme\n-iTerm profile\n-OSX\n-GitHub repos"
+mkdir -p $VIM && ln -s $HOME/.sheatsley.vim $VIM/sheatsley.vim
+mkdir -p $ITERM && ln -s $HOME/.sheatsley.json $ITERM/sheatsley.json 
+while [ read -r REPO ]; do
+    git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
+done < $HOME/.github
+while [IFS=# read -r MACOS CMT ]; do
+    echo $CMT && $MACOS
+done < $HOME/.macos
 
-    # Install Oh My Zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# install ycm semantic support
+echo "Installing YCM semantic support..."
+cd $HOME/.vim/bundle/YouCompletMe && ./install.py --all && cd $HOME
 
-    # Restore terminal settings
-    cp ~/.terminalsettings ~/Library/Preferences/com.apple.Terminal.plist
+# install all vim plugins
+echo "Installing vim plugins..."
+vim +PluginInstall +qall > /dev/null
 
-    # Install Vundle
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/
+# convert yadm repo from https to ssh
+YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
+if [ -z "$YADM_REMOTE" ]; then
+    echo "Changing remote url of yadm repo..."
+    yadm remote set-url origin git@github.com:sheatsley/sheatsley.git
+fi
 
-    # Install black
-    git clone https://github.com/python/black ~/.vim/bundle/
+# decrypt yadm files
+echo "Decrypting files, please insert Yubikey..."
+yadm git-crypt unlock
 
-    # Install YouCompleteMe
-    git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/
-    cd ~/.vim/bundle/YouCompleteMe
-    ./install.py --all
-
-    # Install all vim plugins
-    vim +PluginInstall +qall
-
-    
-
-else 
-    echo "This bootstrap file does not support Linux yet, aborting."
+# replace shell
+### FIX ME - add $
+if [ -z "DOCKER_HOST" ]; then
+    echo "Replacing shell..."
+    exec zsh
 fi
