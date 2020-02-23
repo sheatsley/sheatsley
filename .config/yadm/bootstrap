@@ -28,28 +28,38 @@ if ! gpg -k $KEYID | grep "ultimate"; then
     echo -e "5\n\y\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
 
+# export env variables for ssh access with gpg
+if [ -z "$SSH_AUTH_SOCK" ]; then 
+    echo "Setting env variables for ssh access with gpg..."
+    export GPG_TTY="$(tty)"
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
+fi
+
 # install the remaining applications through submodules
 echo "Installing:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
 yadm submodule update --init
 yadm submodule update --remote
 
-# prep configuration files and repos
-echo "Configuring:\n-iTerm profiles\n-Mac OS\n-GitHub repos"
-if [ ! -f $ITERM/sheatsley.json ]; then
-    mkdir -p $ITERM && ln -s $HOME/.sheatsley.json $ITERM/sheatsley.json 
+# prep configuration files
+echo "Configuring:\n-iTerm profiles\n-Mac OS"
+if [ ! -f "$ITERM/sheatsley.json" ]; then
+    mkdir -p $ITERM && ln -s $HOME/.sheatsley.json "$ITERM/sheatsley.json"
 fi
+sh $HOME/.macos
+
+# download github repos
+echo "Downloading GitHub repos..."
 while IFS= read -r REPO
 do
-    git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
+    if [ ! -d $GITHUB/$REPO ]; then
+        git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
+    fi
 done < $HOME/.gitrepos
-while IFS=# read -r MACOS CMT;
-do
-    echo $CMT && $MACOS
-done < $HOME/.macos
 
 # install ycm semantic support
 echo "Installing YCM semantic support..."
-#cd $HOME/.vim/bundle/YouCompleteMe && ./install.py --all && cd $HOME
+cd $HOME/.vim/bundle/YouCompleteMe && ./install.py --all && cd $HOME
 
 # install all vim plugins
 echo "Installing vim plugins..."
@@ -64,10 +74,8 @@ fi
 
 # decrypt yadm files
 echo "Decrypting files, please insert Yubikey..."
-#yadm git-crypt unlock
+yadm git-crypt unlock
 
-# replace shell
-if [ -z "$DOCKER_HOST" ]; then
-    echo "Replacing shell..."
-    #exec zsh
-fi
+# logout (necessary for some settings)
+echo "Bootstrap complete. Logging out..."
+osascript -e 'tell app "System Events" to log out'
