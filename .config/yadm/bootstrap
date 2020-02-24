@@ -9,65 +9,38 @@ cd $HOME
 
 # install brew if needed
 BREW_PATH=$(which brew)
-if [ -z "$BREW_PATH" ]; then
+if [[ -z "$BREW_PATH" ]]; then
+    echo "Installing brew..."
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # install homebrew-bundle, packages, casks and mas apps
+echo "Updating brew packages..."
 brew bundle --verbose --file=.brewbundle
 
 # add public gpg key to keyring
-if ! gpg -k $KEYID; then
+if [[ -z $(gpg -k $KEYID) ]]; then
     echo "Downloading gpg public key $KEYID ..."
     gpg --card-edit --command-fd 0 <<< fetch
 fi
 
 # set gpg trust to ultimate
-if ! gpg -k $KEYID | grep "ultimate"; then
+if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]; then
     echo "Setting $KEYID trust to ultimate..."
-    echo -e "5\n\y\n" | gpg --command-fd 0 --edit-key $KEYID trust
+    echo -e "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
 
 # export env variables for ssh access with gpg
-if [ -z "$SSH_AUTH_SOCK" ]; then 
+if [[ -z "$SSH_AUTH_SOCK" ]]; then 
     echo "Setting env variables for ssh access with gpg..."
     export GPG_TTY="$(tty)"
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     gpgconf --launch gpg-agent
 fi
 
-# install the remaining applications through submodules
-echo "Installing:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
-yadm submodule update --init
-yadm submodule update --remote
-
-# prep configuration files
-echo "Configuring:\n-iTerm profiles\n-Mac OS"
-if [ ! -f "$ITERM/sheatsley.json" ]; then
-    mkdir -p $ITERM && ln -s $HOME/.sheatsley.json "$ITERM/sheatsley.json"
-fi
-sh $HOME/.macos
-
-# download github repos
-echo "Downloading GitHub repos..."
-while IFS= read -r REPO
-do
-    if [ ! -d $GITHUB/$REPO ]; then
-        git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
-    fi
-done < $HOME/.gitrepos
-
-# install ycm semantic support
-echo "Installing YCM semantic support..."
-cd $HOME/.vim/bundle/YouCompleteMe && ./install.py --all && cd $HOME
-
-# install all vim plugins
-echo "Installing vim plugins..."
-vim +PluginInstall +qall > /dev/null 2>&1
-
 # convert yadm repo from https to ssh
 YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
-if [ -z "$YADM_REMOTE" ]; then
+if [[ -z "$YADM_REMOTE" ]]; then
     echo "Changing remote url of yadm repo..."
     yadm remote set-url origin git@github.com:sheatsley/dotfiles.git
 fi
@@ -75,6 +48,42 @@ fi
 # decrypt yadm files
 echo "Decrypting files, please insert Yubikey..."
 yadm git-crypt unlock
+
+# download github repos
+echo "Updating GitHub repos..."
+while IFS= read -r REPO
+do
+    if [[ ! -d $GITHUB/$REPO ]]; then
+        git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
+    else
+        git -C $GITHUB/$REPO pull
+    fi
+done < $HOME/.gitrepos
+
+# updating the remaining applications through submodules
+echo "Updating:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
+yadm submodule update --init
+yadm submodule update --remote
+
+# prep configuration files
+if [[ ! -f "$ITERM/sheatsley.json" ]]; then
+    echo "Configuring:\n-iTerm profiles\n-Mac OS"
+    mkdir -p $ITERM && ln -s $HOME/.sheatsley.json "$ITERM/sheatsley.json"
+fi
+sh $HOME/.macos
+
+# updating all vim plugins
+echo "Updating vim plugins..."
+vim +PluginInstall +qall > /dev/null 2>&1
+
+# install ycm semantic support
+if [[ ! -f $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ]]; then
+    echo "Installing YCM semantic support..."
+    cd $HOME/.vim/bundle/YouCompleteMe 
+    git submodule update --init --recursive
+    ./install.py --all
+    cd $HOME
+fi
 
 # logout (necessary for some settings)
 echo "Bootstrap complete. Logging out..."
