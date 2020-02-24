@@ -8,8 +8,8 @@ tap "homebrew/services"
 brew "cmake"
 # Distributed revision control system
 brew "git"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
+# Enable transparent encryption/decryption of files in a git repo
+brew "git-crypt"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg", link: false
 # Open source programming language to build simple/reliable/efficient software
@@ -18,6 +18,8 @@ brew "go"
 brew "hopenpgp-tools"
 # Configurable static site generator
 brew "hugo"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
 # GUI for vim, made for macOS
 brew "macvim"
 # Mac App Store command-line interface
