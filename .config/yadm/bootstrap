@@ -17,25 +17,27 @@ then
     /usr/bin/ruby -e "$(curl -fsSL $BREW)"
 fi
 
+# install homebrew-bundle, packages, casks and mas apps
+echo "Updating brew packages..."
+brew bundle --verbose --file=.brewbundle
+
 # accept xcode license if necessary
-if [[ $(which xcodebuild) && ! $(defaults read ${=XCODE}) ]]
+if [[ $(which xcodebuild) && ! "$(defaults read ${XCODE})" ]]
 then
     echo "Accepting XCode license.."
     sudo xcodebuild -license accept 
 fi
 
-# install homebrew-bundle, packages, casks and mas apps
-echo "Updating brew packages..."
-brew bundle --verbose --file=.brewbundle
-
 # add public gpg key to keyring
-if [[ -z $(gpg -k $KEYID) ]]; then
+if [[ -z $(gpg -k $KEYID) ]]
+then
     echo "Downloading gpg public key $KEYID ..."
     gpg --card-edit --command-fd 0 <<< fetch
 fi
 
 # set gpg trust to ultimate
-if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]; then
+if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]
+then
     echo "Setting $KEYID trust to ultimate..."
     echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
@@ -84,7 +86,7 @@ yadm submodule update --remote
 if [[ ! -f "$ITERM/sheatsley.json" ]]
 then
     echo "Configuring:\n-iTerm profiles\n-Mac OS"
-    mkdir -p $ITERM && ln -s $HOME/.sheatsley.json ${=ITERM}/sheatsley.json
+    mkdir -p "$ITERM" && ln -s $HOME/.sheatsley.json "${ITERM}/sheatsley.json"
 fi
 sh $HOME/.macos
 
