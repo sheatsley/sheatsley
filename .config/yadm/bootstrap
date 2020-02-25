@@ -27,7 +27,7 @@ fi
 # set gpg trust to ultimate
 if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]; then
     echo "Setting $KEYID trust to ultimate..."
-    echo -e "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
+    echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
 
 # export env variables for ssh access with gpg
