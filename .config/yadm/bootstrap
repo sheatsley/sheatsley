@@ -42,17 +42,6 @@ then
     echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
 
-# export env variables for ssh access with gpg
-if [[ -z $SSH_AUTH_SOCK ]]
-then 
-    echo "Setting env variables for ssh access with gpg..."
-    eval `/usr/libexec/path_helper -s`
-    export GPG_TTY="$(tty)"
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    gpgconf --launch gpg-agent
-    sleep 5
-fi
-
 # convert yadm repo from https to ssh
 YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
 if [[ -z "$YADM_REMOTE" ]]
@@ -64,6 +53,16 @@ fi
 # decrypt yadm files
 echo "Decrypting files, please insert Yubikey..."
 yadm git-crypt unlock
+
+# export env variables for ssh access with gpg
+if [[ ! $(which gpgconf) ]]
+then 
+    echo "Setting env variables for ssh access with gpg..."
+    eval `/usr/libexec/path_helper -s`
+    export GPG_TTY="$(tty)"
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
+fi
 
 # download github repos
 echo "Updating GitHub repos..."
