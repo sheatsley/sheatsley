@@ -40,6 +40,8 @@ if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]
 then
     echo "Setting $KEYID trust to ultimate..."
     echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
+    /usr/local/MacGPG2/bin/gpgconf --kill gpg-agent
+    sleep 5
 fi
 
 # convert yadm repo from https to ssh
@@ -78,7 +80,7 @@ done < $HOME/.gitrepos
 
 # updating the remaining applications through submodules
 echo "Updating remaining applications:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
-yadm submodule update --init
+yadm submodule update --init --recursive
 yadm submodule update --remote
 
 # prep configuration files
@@ -94,11 +96,10 @@ echo "Updating vim plugins..."
 vim +PluginInstall +qall
 
 # install ycm semantic support
-if [[ ! -f $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ]]
+if [[ ! -f $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]]
 then
     echo "Installing YCM semantic support..."
     cd $HOME/.vim/bundle/YouCompleteMe 
-    git submodule update --init --recursive
     ./install.py --all
     cd $HOME
 fi
