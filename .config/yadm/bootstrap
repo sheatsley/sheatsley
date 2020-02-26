@@ -1,7 +1,8 @@
 # configuration variables
 BREW="https://raw.githubusercontent.com/Homebrew/install/master/install"
 ITERM=$HOME"/Library/Application Support/iTerm2/DynamicProfiles"
-GITHUB=$HOME/repos
+GITHUB=$HOME/"repos"
+GPGCONF="/usr/local/MacGPG2/bin"
 KEYID="D97737F91189673C"
 XCODE="/Library/Preferences/com.apple.dt.Xcode IDELastGMLicenseAgreedTo"
 
@@ -40,8 +41,6 @@ if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]
 then
     echo "Setting $KEYID trust to ultimate..."
     echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
-    /usr/local/MacGPG2/bin/gpgconf --kill gpg-agent
-    sleep 5
 fi
 
 # convert yadm repo from https to ssh
@@ -62,8 +61,8 @@ then
     echo "Setting env variables for ssh access with gpg..."
     eval `/usr/libexec/path_helper -s`
     export GPG_TTY="$(tty)"
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    gpgconf --launch gpg-agent
+    export SSH_AUTH_SOCK=$($GPGCONF/gpgconf --list-dirs agent-ssh-socket)
+    $GPGCONF/gpgconf --launch gpg-agent
 fi
 
 # download github repos
