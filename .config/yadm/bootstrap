@@ -58,6 +58,7 @@ if [[ $(grep -qsa "\0xGITCRYPT" $HOME/.gitrepos) ]]
     if [[ ! $(yadm git-crypt unlock) ]]
     then
         exit 1
+    fi
 fi
 
 # export env variables for ssh access with gpg
@@ -92,8 +93,8 @@ if [[ ! -f "$ITERM/sheatsley.json" ]]
 then
     echo "Configuring:\n-iTerm profiles\n-Mac OS"
     mkdir -p "$ITERM" && ln -s $HOME/.sheatsley.json "${ITERM}/sheatsley.json"
+    sh $HOME/.macos
 fi
-sh $HOME/.macos
 
 # updating all vim plugins
 echo "Updating vim plugins..."
