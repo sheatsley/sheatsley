@@ -52,7 +52,7 @@ then
 fi
 
 # decrypt yadm files
-if [[ grep -qsa "\0xGITCRYPT" $HOME/.gitrepos ]]
+if [[ $(grep -qsa "\0xGITCRYPT" $HOME/.gitrepos) ]]
     then
     echo "Decrypting files, please insert Yubikey..."
     if [[ ! $(yadm git-crypt unlock) ]]
