@@ -53,7 +53,9 @@ fi
 
 # decrypt yadm files
 echo "Decrypting files, please insert Yubikey..."
-yadm git-crypt unlock
+if [[ ! $(yadm git-crypt unlock) ]]
+    exit 1
+fi
 
 # export env variables for ssh access with gpg
 if [[ ! $(which gpgconf) ]]
