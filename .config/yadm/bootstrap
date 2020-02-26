@@ -52,9 +52,12 @@ then
 fi
 
 # decrypt yadm files
-echo "Decrypting files, please insert Yubikey..."
-if [[ ! $(yadm git-crypt unlock) ]]
-    exit 1
+if [[ grep -qsa "\0xGITCRYPT" $HOME/.gitrepos ]]
+    then
+    echo "Decrypting files, please insert Yubikey..."
+    if [[ ! $(yadm git-crypt unlock) ]]
+    then
+        exit 1
 fi
 
 # export env variables for ssh access with gpg
