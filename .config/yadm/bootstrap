@@ -73,11 +73,11 @@ fi
 
 # download github repos
 echo "Updating GitHub repos..."
-while IFS= read -r REPO
+while IFS="/" read -r OWNER REPO
 do
     if [[ ! -d $GITHUB/$REPO ]]
     then
-        git clone git@github.com:sheatsley/$REPO.git $GITHUB/$REPO
+        git clone git@github.com:$OWNER/$REPO.git $GITHUB/$REPO
     else
         git -C $GITHUB/$REPO pull
     fi
@@ -87,14 +87,6 @@ done < $HOME/.gitrepos
 echo "Updating remaining applications:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
 yadm submodule update --init --recursive
 yadm submodule update --remote
-
-# prep configuration files
-if [[ ! -f "$ITERM/sheatsley.json" ]]
-then
-    echo "Configuring:\n-iTerm profiles\n-Mac OS"
-    mkdir -p "$ITERM" && ln -s $HOME/.sheatsley.json "${ITERM}/sheatsley.json"
-    sh $HOME/.macos
-fi
 
 # updating all vim plugins
 echo "Updating vim plugins..."
@@ -109,6 +101,12 @@ then
     cd $HOME
 fi
 
-# logout (necessary for some settings)
-echo "Bootstrap complete. Logging out..."
-osascript -e 'tell app "System Events" to log out'
+# prep configuration files and logout (necessary for some settings)
+if [[ ! -f "$ITERM/sheatsley.json" ]]
+then
+    echo "Configuring:\n-iTerm profiles\n-Mac OS"
+    mkdir -p "$ITERM" && ln -s $HOME/.sheatsley.json "${ITERM}/sheatsley.json"
+    sh $HOME/.macos
+    osascript -e 'tell app "System Events" to log out'
+fi
+echo "Bootstrap complete"
