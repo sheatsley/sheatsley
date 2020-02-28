@@ -4,6 +4,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "sheatsley/sheatsley"
 # Cross-platform make
 brew "cmake"
 # Distributed revision control system
@@ -40,6 +41,8 @@ brew "ykpers"
 brew "ykman"
 # UNIX shell (command interpreter)
 brew "zsh"
+# A command-line interface thesaurus
+brew "sheatsley/sheatsley/cli-thesaurus"
 cask "box-drive"
 cask "camtasia"
 cask "discord"
