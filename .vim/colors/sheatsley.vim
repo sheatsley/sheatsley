@@ -46,7 +46,7 @@ hi TabLine          term=underline      ctermfg=0    ctermbg=7    guifg=#072b36 
 hi TabLineSel       term=bold           cterm=bold                gui=NONE
 hi TabLineFill      term=reverse        cterm=reverse             gui=reverse
 hi CursorColumn     term=reverse        ctermfg=NONE ctermbg=7    guifg=NONE    guibg=#eee7d7
-hi CursorLine       term=underline      cterm=underline           guifg=NONE    guibg=Grey90
+hi CursorLine       term=standout       ctermfg=0    ctermbg=225  guifg=#072b36 guibg=#ffd7ff 
 hi ColorColumn      term=reverse        ctermfg=NONE ctermbg=224  guifg=NONE    guibg=#ffd7d7
 hi link QuickFixLine Search
 hi StatusLineTerm   term=reverse        ctermfg=15   ctermbg=2    guifg=#fdf6e3 guibg=#aab946
