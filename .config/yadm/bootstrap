@@ -77,9 +77,9 @@ while IFS="/" read -r OWNER REPO
 do
     if [[ ! -d $GITHUB/$REPO ]]
     then
-        git clone git@github.com:$OWNER/$REPO.git $GITHUB/$REPO
+        git clone --recurse-submodules git@github.com:$OWNER/$REPO.git $GITHUB/$REPO
     else
-        git -C $GITHUB/$REPO pull
+        git -C $GITHUB/$REPO pull --recurse-submodules
     fi
 done < $HOME/.gitrepos
 
