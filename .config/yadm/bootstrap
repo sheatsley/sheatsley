@@ -1,6 +1,6 @@
 # configuration variables
 BREW="https://raw.githubusercontent.com/Homebrew/install/master/install"
-ITERM=$HOME"/Library/Application Support/iTerm2/DynamicProfiles"
+ITERM=$HOME"/Library/ApplicationSupport/iTerm2/"
 GITHUB=$HOME/"repos"
 GPGCONF="/usr/local/MacGPG2/bin"
 KEYID="D97737F91189673C"
@@ -102,10 +102,12 @@ then
 fi
 
 # prep configuration files and logout (necessary for some settings)
-if [[ ! -f "$ITERM/sheatsley.json" ]]
+if [[ ! -f "$ITERM/DynamicProfiles/sheatsley.json" ]]
 then
     echo "Configuring:\n-iTerm profiles\n-Mac OS"
-    mkdir -p "$ITERM" && ln -s $HOME/.sheatsley.json "${ITERM}/sheatsley.json"
+    mkdir -p $ITERM/DynamicProfiles $ITERM/Scripts/AutoLaunch
+    ln -s $HOME/.sheatsley.json $ITERM/DynamicProfiles/sheatsley.json
+    ln -s $GITHUB/iterm-components/*.py $ITERM/Scripts/AutoLaunch
     sh $HOME/.macos
     osascript -e 'tell app "System Events" to log out'
 fi
