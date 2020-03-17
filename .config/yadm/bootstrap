@@ -1,6 +1,6 @@
 # configuration variables
-BREW="https://raw.githubusercontent.com/Homebrew/install/master/install"
-ITERM=$HOME"/Library/ApplicationSupport/iTerm2/"
+BREW="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+ITERM=$HOME"/Library/Application Support/iTerm2/"
 GITHUB=$HOME/"repos"
 GPGCONF="/usr/local/MacGPG2/bin"
 KEYID="D97737F91189673C"
@@ -11,11 +11,10 @@ echo "Moving to $HOME ..."
 cd $HOME
 
 # install brew if needed
-BREW_PATH=$(which brew)
-if [[ -z "$BREW_PATH" ]]
+if ! type brew >/dev/null
 then
     echo "Installing brew..."
-    /usr/bin/ruby -e "$(curl -fsSL $BREW)"
+    /bin/bash -c "$(curl -fsSL $BREW)"
 fi
 
 # install homebrew-bundle, packages, casks and mas apps
@@ -23,51 +22,51 @@ echo "Updating brew packages..."
 brew bundle --verbose --file=.brewbundle
 
 # accept xcode license if necessary
-if [[ $(which xcodebuild) && ! "$(defaults read ${XCODE})" ]]
+if ! (type xcodebuild && defaults read $XCODE) >/dev/null
 then
-    echo "Accepting XCode license.."
+    echo "Accepting XCode license..."
     sudo xcodebuild -license accept 
 fi
 
 # add public gpg key to keyring
-if [[ -z $(gpg -k $KEYID) ]]
+if ! gpg -k $KEYID >/dev/null
 then
-    echo "Downloading gpg public key $KEYID ..."
+    echo "Downloading GPG public key $KEYID ..."
     gpg --card-edit --command-fd 0 <<< fetch
 fi
 
 # set gpg trust to ultimate
-if [[ -z $(gpg -k $KEYID | grep "ultimate") ]]
+if ! (gpg -k $KEYID | grep "ultimate") >/dev/null
 then
     echo "Setting $KEYID trust to ultimate..."
     echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
 
 # convert yadm repo from https to ssh
-YADM_REMOTE=$(yadm remote get-url origin | grep "git@github.com")
-if [[ -z "$YADM_REMOTE" ]]
+if ! (yadm remote get-url origin | grep "git@github.com") >/dev/null
 then
     echo "Changing remote url of yadm repo..."
-    yadm remote set-url origin git@github.com:sheatsley/dotfiles.git
+    yadm remote set-url origin "git@github.com:$(yadm remote get-url origin | cut -d '/' -f4-)"
 fi
 
 # decrypt yadm files
-if [[ $(grep -qsa "\0xGITCRYPT" $HOME/.gitrepos) ]]
-    then
+if grep "\x00GITCRYPT" $HOME/.gitrepos >/dev/null
+then
     echo "Decrypting files, please insert Yubikey..."
-    if [[ ! $(yadm git-crypt unlock) ]]
+    if ! yadm crypt unlock
     then
+        echo "Decrypt failed! Exiting..."
         exit 1
     fi
 fi
 
 # export env variables for ssh access with gpg
-if [[ ! $(which gpgconf) ]]
+if ! type gpgconf >/dev/null
 then 
-    echo "Setting env variables for ssh access with gpg..."
+    echo "Setting env variables for SSH access with GPG..."
     eval `/usr/libexec/path_helper -s`
     export GPG_TTY="$(tty)"
-    export SSH_AUTH_SOCK=$($GPGCONF/gpgconf --list-dirs agent-ssh-socket)
+    export SSH_AUTH_SOCK="$($GPGCONF/gpgconf --list-dirs agent-ssh-socket)"
     $GPGCONF/gpgconf --launch gpg-agent
 fi
 
@@ -75,7 +74,7 @@ fi
 echo "Updating GitHub repos..."
 while IFS="/" read -r OWNER REPO
 do
-    if [[ ! -d $GITHUB/$REPO ]]
+    if [ ! -d $GITHUB/$REPO ]
     then
         git clone --recurse-submodules git@github.com:$OWNER/$REPO.git $GITHUB/$REPO
     else
@@ -93,7 +92,7 @@ echo "Updating vim plugins..."
 vim +PluginInstall +qall
 
 # install ycm semantic support
-if [[ ! -f $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]]
+if [ ! -f $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]
 then
     echo "Installing YCM semantic support..."
     cd $HOME/.vim/bundle/YouCompleteMe 
@@ -102,7 +101,7 @@ then
 fi
 
 # prep configuration files and logout (necessary for some settings)
-if [[ ! -f "$ITERM/DynamicProfiles/sheatsley.json" ]]
+if [ ! -f "$ITERM/DynamicProfiles/sheatsley.json" ]
 then
     echo "Configuring:\n-iTerm profiles\n-Mac OS"
     mkdir -p $ITERM/DynamicProfiles $ITERM/Scripts/AutoLaunch
@@ -110,5 +109,6 @@ then
     ln -s $GITHUB/iterm-components/*.py $ITERM/Scripts/AutoLaunch
     sh $HOME/.macos
     osascript -e 'tell app "System Events" to log out'
+    echo "Manual configs:\n-wallpaper\n-menu bar\n-menu bar keyboard flag\n-spotmenu startup"
 fi
-echo "Bootstrap complete"
+echo "Bootstrap complete."
