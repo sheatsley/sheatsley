@@ -1,6 +1,6 @@
 # configuration variables
 BREW="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
-ITERM=$HOME"/Library/Application Support/iTerm2/"
+ITERM=$HOME"/Library/Application\ Support/iTerm2/"
 GITHUB=$HOME/"repos"
 GPGCONF="/usr/local/MacGPG2/bin"
 KEYID="D97737F91189673C"
@@ -109,6 +109,5 @@ then
     ln -s $GITHUB/iterm-components/*.py $ITERM/Scripts/AutoLaunch
     sh $HOME/.macos
     osascript -e 'tell app "System Events" to log out'
-    echo "Manual configs:\n-wallpaper\n-menu bar\n-menu bar keyboard flag\n-spotmenu startup"
 fi
 echo "Bootstrap complete."
