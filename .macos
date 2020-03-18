@@ -28,8 +28,7 @@ defaults write com.apple.systemuiserver menuExtras -array                       
 "/System/Library/CoreServices/Menu Extras/Clock.menu"                                `# add clock to the menubar` \
 "/System/Library/CoreServices/Menu Extras/Displays.menu"                             `# add airplay to the menubar` \
 "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"                          `# add time machine to the menubar` \
-"/System/Library/CoreServices/Menu Extras/Volume.menu"                               `# add volume to the menubar` \
-"/System/Library/CoreServices/Menu Extras/VPN.menu"                                  `# add vpn options to the menubar`
+"/System/Library/CoreServices/Menu Extras/Volume.menu"                               `# add volume to the menubar`
 defaults write NSGlobalDomain AppleShowAllExtensions -int 1                           # show filename extensions in Finder
 defaults write NSGlobalDomain AppleWindowTabbingMode "manual"                         # set tabs when opening documents to manual
 defaults write NSGlobalDomain com.apple.trackpad.scaling -int 2                       # set faster tracking speed
