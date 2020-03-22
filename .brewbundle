@@ -27,6 +27,8 @@ brew "macvim"
 brew "mas"
 # Platform built on V8 to build network applications
 brew "node"
+# Open client for Cisco AnyConnect VPN
+brew "openconnect"
 # Outputs current CPU temperature for OSX
 brew "osx-cpu-temp"
 # 7-Zip (high compression file archiver) implementation
