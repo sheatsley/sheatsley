@@ -1,6 +1,32 @@
-.DS_Store         # macOS folder metadata
-__pycache__/      # python byte-compiled
-dist/             # python build distribution
-build/            # python build metadata
-*.egg-info/       # python distribution bundle
-[._]*.s[a-v[a-z]] # vim swapfiles
+# LaTeX hyperref package metadata  
+*.out             
+
+# LaTeX metadata
+*.aux             
+
+# Latexmk files read & written
+*.fls             
+
+# Latexmk log file
+*.fdb_latexmk     
+
+# macOS folder metadata
+.DS_Store
+
+# pdfTeX log file
+*.log             
+
+# python byte-compiled
+__pycache__/      
+
+# python build distribution
+dist/             
+
+# python build metadata
+build/            
+
+# python distribution bundle
+*.egg-info/       
+
+# vim swapfiles
+[._]*.s[a-w][a-z] 
