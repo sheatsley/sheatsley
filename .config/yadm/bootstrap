@@ -21,6 +21,10 @@ fi
 echo "Updating brew packages..."
 brew bundle --verbose --file=.brewbundle
 
+# install python packages
+echo "Installing python modules..."
+pip3 install -r .pip
+
 # accept xcode license if necessary
 if ! (type xcodebuild && defaults read $XCODE) >/dev/null
 then
@@ -50,7 +54,7 @@ then
 fi
 
 # decrypt yadm files
-if grep "\x00GITCRYPT" $HOME/.gitrepos >/dev/null
+if grep "\x00GITCRYPT" .gitrepos >/dev/null
 then
     echo "Decrypting files, please insert Yubikey..."
     if ! yadm crypt unlock
@@ -80,7 +84,7 @@ do
     else
         git -C $GITHUB/$REPO pull --recurse-submodules
     fi
-done < $HOME/.gitrepos
+done < .gitrepos
 
 # updating the remaining applications through submodules
 echo "Updating remaining applications:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
@@ -92,10 +96,10 @@ echo "Updating vim plugins..."
 vim +PluginInstall +qall
 
 # install ycm semantic support
-if [ ! -f $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]
+if [ ! -f .vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]
 then
     echo "Installing YCM semantic support..."
-    cd $HOME/.vim/bundle/YouCompleteMe 
+    cd .vim/bundle/YouCompleteMe 
     ./install.py --all
     cd $HOME
 fi
@@ -107,7 +111,7 @@ then
     mkdir -p $ITERM/DynamicProfiles $ITERM/Scripts/AutoLaunch
     ln -s $HOME/.sheatsley.json $ITERM/DynamicProfiles/sheatsley.json
     ln -s $GITHUB/iterm-components/*.py $ITERM/Scripts/AutoLaunch
-    sh $HOME/.macos
+    sh .macos
     osascript -e 'tell app "System Events" to log out'
 fi
 echo "Bootstrap complete."
