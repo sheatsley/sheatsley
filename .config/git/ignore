@@ -1,0 +1,6 @@
+.DS_Store         # macOS folder metadata
+__pycache__/      # python byte-compiled
+dist/             # python build distribution
+build/            # python build metadata
+*.egg-info/       # python distribution bundle
+[._]*.s[a-v[a-z]] # vim swapfiles
