@@ -1,13 +1,7 @@
 {
 "Profiles": [
 {
-  "Ansi 5 Color" : {
-    "Red Component" : 0.91764705882352937,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.6705882352941176,
-    "Alpha Component" : 1,
-    "Green Component" : 0.38823529411764707
-  },
+  "ASCII Ligatures" : false,
   "Working Directory" : "\/Users\/sheatsley",
   "Prompt Before Closing 2" : false,
   "Dynamic Profile Filename" : "\/Users\/sheatsley\/Library\/Application Support\/iTerm2\/DynamicProfiles\/sheatsley.json",
@@ -98,6 +92,10 @@
               "Alpha Component" : 1,
               "Green Component" : 0.16862745098039217
             }
+          },
+          "layout advanced configuration dictionary value" : {
+            "font" : ".AppleSystemUIFont 12",
+            "algorithm" : 1
           }
         }
       },
@@ -472,8 +470,8 @@
     "Green Component" : 0.16862745098039217
   },
   "Blur" : true,
-  "Normal Font" : "DejaVuSansMonoPowerline 11",
   "Vertical Spacing" : 1,
+  "Normal Font" : "DejaVuSansMonoPowerline 11",
   "Ansi 7 Color" : {
     "Red Component" : 0.96078431372549022,
     "Color Space" : "sRGB",
@@ -521,8 +519,14 @@
   "Columns" : 179,
   "Visual Bell" : true,
   "Custom Directory" : "No",
-  "Thin Strokes" : 4,
-  "ASCII Ligatures" : false
+  "Ansi 5 Color" : {
+    "Red Component" : 0.91764705882352937,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.6705882352941176,
+    "Alpha Component" : 1,
+    "Green Component" : 0.38823529411764707
+  },
+  "Thin Strokes" : 4
 },
 {
   "Ansi 5 Color" : {
@@ -1061,9 +1065,9 @@
 
   ],
   "Visual Bell" : true,
-  "ASCII Ligatures" : false,
+  "Custom Directory" : "No",
   "Thin Strokes" : 4,
-  "Custom Directory" : "No"
+  "ASCII Ligatures" : false
 }
 ]
 }
