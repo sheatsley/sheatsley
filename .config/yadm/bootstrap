@@ -92,7 +92,7 @@ yadm submodule update --init --recursive
 yadm submodule update --remote
 
 # updating all vim plugins
-echo "Updating vim plugins..."
+echo "Updating vim plugins:\n-black\-n-vim-clang-format\-n-vim-fugitive\n-YouCompleteMe"
 vim +PluginInstall +qall
 
 # install ycm semantic support
