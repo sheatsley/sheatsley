@@ -87,7 +87,7 @@ do
 done < .gitrepos
 
 # updating the remaining applications through submodules
-echo "Updating remaining applications:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe"
+echo "Updating remaining applications:\n-ohmyzsh\n-Vundle.vim\n-black\n-vim-fugitive\n-YouCompleteMe\n-vim-clang-format"
 yadm submodule update --init --recursive
 yadm submodule update --remote
 
