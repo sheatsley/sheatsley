@@ -13,6 +13,9 @@
 # macOS folder metadata
 .DS_Store
 
+# portable documents
+*.pdf
+
 # pdfTeX log file
 *.log             
 
