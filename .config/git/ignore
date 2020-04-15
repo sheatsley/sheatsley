@@ -1,3 +1,9 @@
+# BibTeX bibliography 
+*.bbl
+
+# BibTex log
+*.blg
+
 # LaTeX hyperref package metadata  
 *.out             
 
