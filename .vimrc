@@ -9,7 +9,7 @@ Plugin 'ycm-core/YouCompleteMe'             " A code-completion for Vim
 call vundle#end()
 
 "         <|> FILE-SPECIFIC <|>
-au Filetype tex,markdown,text setlocal        
+au Filetype plaintex,tex,markdown setlocal        
     \ textwidth=79                 
     \ spell spelllang=en                    " wrap at 79 characters & use spellchecking
 
