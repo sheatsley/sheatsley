@@ -26,7 +26,7 @@ echo "Installing python modules..."
 pip3 install -r .pip
 
 # accept xcode license if necessary
-if ! (type xcodebuild && defaults read $XCODE) >/dev/null
+if ! type xcodebuild && defaults read $XCODE >/dev/null
 then
     echo "Accepting XCode license..."
     sudo xcodebuild -license accept 
@@ -40,14 +40,14 @@ then
 fi
 
 # set gpg trust to ultimate
-if ! (gpg -k $KEYID | grep "ultimate") >/dev/null
+if ! gpg -k $KEYID | grep "ultimate" >/dev/null
 then
     echo "Setting $KEYID trust to ultimate..."
     echo "5\ny\n" | gpg --command-fd 0 --edit-key $KEYID trust
 fi
 
 # convert yadm repo from https to ssh
-if ! (yadm remote get-url origin | grep "git@github.com") >/dev/null
+if ! yadm remote get-url origin | grep "git@github.com" >/dev/null
 then
     echo "Changing remote url of yadm repo..."
     yadm remote set-url origin "git@github.com:$(yadm remote get-url origin | cut -d '/' -f4-)"
@@ -104,13 +104,19 @@ then
     cd $HOME
 fi
 
-# prep configuration files and logout (necessary for some settings)
-if [ ! -f "$ITERM/DynamicProfiles/sheatsley.json" ]
+# configure iTerm2
+if ! defaults read com.googlecode.iterm2 PrefsCustomFolder >/dev/null 2>&1
 then
-    echo "Configuring:\n-iTerm profiles\n-Mac OS"
-    mkdir -p $ITERM/DynamicProfiles $ITERM/Scripts/AutoLaunch
-    ln -s $HOME/.sheatsley.json $ITERM/DynamicProfiles/sheatsley.json
+    echo "Configuring iTerm2 profiles and wigets..."
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+    mkdir -p $ITERM/Scripts/AutoLaunch
     ln -s $GITHUB/iterm-components/*.py $ITERM/Scripts/AutoLaunch
+fi
+
+# configure macOS and logout (necessary for some settings to take effect)
+if ! [ $(defaults read com.apple.dock mru-spaces) -eq 0 ]
+then
+    echo "Setting macOS preferences and logging out..."
     sh .macos
     osascript -e 'tell app "System Events" to log out'
 fi
