@@ -2,5 +2,7 @@ iterm2
 liac-arff
 matplotlib
 numpy
+torch
+torchvision
 scikit-learn
 twine
