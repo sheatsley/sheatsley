@@ -54,7 +54,7 @@ hi StatusLineTermNC term=reverse        ctermfg=15   ctermbg=2    guifg=#fdf6e3 
 hi Cursor                                                         guifg=bg      guibg=fg
 hi lCursor                                                        guifg=bg      guibg=fg
 hi Normal                               ctermfg=NONE ctermbg=NONE guibg=#002B36 guifg=#839496
-hi MatchParen       term=reverse        ctermfg=NONE ctermbg=14   guifg=NONE    guibg=#94a1a1
+hi MatchParen       term=reverse        ctermfg=7    ctermbg=23   guifg=#eee7d7 guibg=#0e5469
 hi ToolbarLine      term=underline      ctermfg=NONE ctermbg=7    guifg=NONE    guibg=#eee7d7
 hi ToolbarButton    term=reverse        ctermfg=15   ctermbg=242  guifg=#fdf6e3 guibg=#6c6c6c
 hi Error            term=reverse        ctermfg=15   ctermbg=1    guifg=#fdf6e3 guibg=#f9645a
