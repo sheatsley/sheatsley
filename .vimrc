@@ -45,6 +45,5 @@ set smartcase                               " ... except when using capitals
 "  	      <|> PERSONAL <|>
 command! W write                            " vim should do this by default
 cmap w!! w !sudo tee %                      " save with root privileges (command-line)
-cnoreabbrev fix :norm! gqip                 " because I keep forgetting this command
 map /\ :noh                                 " redraw screen without highlighting 
 colorscheme sheatsley                       " use personal colorscheme
