@@ -2,6 +2,7 @@ iterm2
 liac-arff
 matplotlib
 numpy
+pandas
 torch
 torchvision
 scikit-learn
