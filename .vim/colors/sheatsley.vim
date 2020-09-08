@@ -38,15 +38,15 @@ hi SpellBad         term=reverse        ctermfg=0    ctermbg=1    gui=undercurl 
 hi SpellCap         term=reverse        ctermfg=0    ctermbg=4    gui=undercurl guisp=Blue
 hi SpellRare        term=reverse        ctermfg=0    ctermbg=5    gui=undercurl guisp=Magenta
 hi SpellLocal       term=underline      ctermfg=0    ctermbg=6    gui=undercurl guisp=DarkCyan
-hi Pmenu            term=standout       ctermfg=0    ctermbg=225  guifg=#9ba9ab guibg=#0e2129
-hi PmenuSel         term=standout       ctermfg=0    ctermbg=7    guifg=#9ba9ab guibg=#163340
+hi Pmenu            term=standout       ctermfg=248  ctermbg=234  guifg=#9ba9ab guibg=#0e2129
+hi PmenuSel         term=standout       ctermfg=248  ctermbg=235  guifg=#9ba9ab guibg=#163340
 hi PmenuSbar        term=standout       ctermfg=NONE ctermbg=248  guifg=NONE    guibg=#a8a8a8
 hi PmenuThumb       term=standout       ctermfg=NONE ctermbg=0    guifg=NONE    guibg=#072b36
 hi TabLine          term=underline      ctermfg=0    ctermbg=7    guifg=#072b36 guibg=#eee7d7 
 hi TabLineSel       term=bold           cterm=bold                gui=NONE
 hi TabLineFill      term=reverse        cterm=reverse             gui=reverse
 hi CursorColumn     term=reverse        ctermfg=NONE ctermbg=7    guifg=NONE    guibg=#eee7d7
-hi CursorLine       term=standout       ctermfg=0    ctermbg=NONE guifg=NONE    guibg=NONE
+hi CursorLine       term=standout       ctermfg=NONE ctermbg=NONE  guifg=NONE    guibg=NONE
 hi ColorColumn      term=reverse        ctermfg=NONE ctermbg=224  guifg=NONE    guibg=#ffd7d7
 hi link QuickFixLine Search
 hi StatusLineTerm   term=reverse        ctermfg=15   ctermbg=2    guifg=#fdf6e3 guibg=#aab946
