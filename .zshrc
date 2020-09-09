@@ -27,3 +27,6 @@ gpgconf --launch gpg-agent
 
 # Enable docker remote
 export DOCKER_HOST="ssh://siis"
+
+# Enable X11 forwarding
+export DISPLAY=:0
