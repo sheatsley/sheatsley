@@ -5,6 +5,8 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "sheatsley/sheatsley"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
 brew "clang-format"
 # Cross-platform make
@@ -21,8 +23,6 @@ brew "go"
 brew "hopenpgp-tools"
 # Configurable static site generator
 brew "hugo"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
 # GUI for vim, made for macOS
 brew "macvim"
 # Mac App Store command-line interface
@@ -53,6 +53,7 @@ cask "box-drive"
 cask "camtasia"
 cask "discord"
 cask "docker"
+cask "firefox"
 cask "font-dejavu-sans-mono-for-powerline"
 cask "google-backup-and-sync"
 cask "gpg-suite"
@@ -67,6 +68,7 @@ cask "spotify"
 cask "spotmenu"
 cask "vmware-fusion"
 cask "webex-meetings"
+cask "xquartz"
 cask "yubico-yubikey-manager"
 cask "zoomus"
 cask "zotero"
