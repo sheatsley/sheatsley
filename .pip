@@ -1,6 +1,7 @@
 iterm2
 liac-arff
 matplotlib
+more-itertools
 numpy
 pandas
 torch
