@@ -23,6 +23,8 @@ brew "go"
 brew "hopenpgp-tools"
 # Configurable static site generator
 brew "hugo"
+# LastPass command-line interface tool
+brew "lastpass-cli"
 # GUI for vim, made for macOS
 brew "macvim"
 # Mac App Store command-line interface
