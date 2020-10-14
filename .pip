@@ -4,6 +4,7 @@ matplotlib
 more-itertools
 numpy
 pandas
+pipupgrade
 torch
 torchvision
 scikit-learn
