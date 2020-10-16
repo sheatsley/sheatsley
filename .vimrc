@@ -2,6 +2,7 @@ set nocompatible                            " Vundle dependencies
 set rtp+=~/.vim/bundle/Vundle.vim           " set the runtime path to include Vundle and initialize
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'               " The plugin-manager for Vim
+Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 Plugin 'psf/black'                          " The uncompromising Python code formatter'
 Plugin 'rhysd/vim-clang-format'             " Vim plugin for clang-format, a formatter for C, C++...
 Plugin 'tpope/vim-fugitive'                 " A Git wrapper so awesome, it should be illegal
