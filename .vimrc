@@ -5,7 +5,6 @@ Plugin 'VundleVim/Vundle.vim'               " The plugin-manager for Vim
 Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 Plugin 'psf/black'                          " The uncompromising Python code formatter'
 Plugin 'rhysd/vim-clang-format'             " Vim plugin for clang-format, a formatter for C, C++...
-Plugin 'tpope/vim-fugitive'                 " A Git wrapper so awesome, it should be illegal
 Plugin 'ycm-core/YouCompleteMe'             " A code-completion for Vim
 call vundle#end()
 
@@ -31,8 +30,7 @@ set laststatus=2                            " always display status line
 set number                                  " show line numbers
 set showcmd                                 " show command in bottom bar
 set showmatch                               " highlight matching [{()}]
-set statusline=%{FugitiveStatusline()}\     " show git status on statusline
-set statusline+=%<%f\ %=%-14.(%l,%c%V%)\ %P " add path, row, col, and buffer percentage to statusline
+set statusline=%<%f\ %=%-14.(%l,%c%V%)\ %P  " add path, row, col, and buffer percentage to statusline
 set visualbell                              " use a visual over auditory bells
 set wildmenu                                " visual autocomplete for command menu
 syntax on                                   " sets color of text based on category of terms
