@@ -4,9 +4,22 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'               " The plugin-manager for Vim
 Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 Plugin 'psf/black'                          " The uncompromising Python code formatter'
+Plugin 'preservim/nerdtree'                 " A tree explorer plugin for vim
+Plugin 'tpope/vim-fugitive'                 " A Git wrapper so awesome, it should be illegal
+Plugin 'joshdick/onedark.vim'               " A dark color scheme inspired by Atom's One Dark
+Plugin 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim that's light as air
 Plugin 'rhysd/vim-clang-format'             " Vim plugin for clang-format, a formatter for C, C++...
 Plugin 'ycm-core/YouCompleteMe'             " A code-completion for Vim
 call vundle#end()
+
+"         <|> PLUGIN CONFIG <|>
+let g:airline#extensions#tabline#enabled=1  " show buffers with tabs
+let g:airline_powerline_fonts=1             " use powerline fonts for statusbar
+autocmd VimEnter * NERDTree | wincmd p      " open nerdtree on start and switch buffer to edit file
+autocmd bufenter * if (winnr("$") == 1
+            \ && exists("b:NERDTree")
+            \ && b:NERDTree.isTabTree()) 
+            \ | q | endif                   " close nerdtree if no file is open
 
 "         <|> FILE-SPECIFIC <|>
 au Filetype plaintex,tex,markdown setlocal        
@@ -25,13 +38,7 @@ set softtabstop=4                           " number of spaces in a <TAB> when e
 set tabstop=4                               " number of visual spaces per <TAB> in a file
 
 "  	      <|> UI CONFIG <|>
-set cmdheight=2                             " set command window height to 2 lines
-set laststatus=2                            " always display status line
 set number                                  " show line numbers
-set showcmd                                 " show command in bottom bar
-set showmatch                               " highlight matching [{()}]
-set statusline=%<%f\ %=%-14.(%l,%c%V%)\ %P  " add path, row, col, and buffer percentage to statusline
-set visualbell                              " use a visual over auditory bells
 set wildmenu                                " visual autocomplete for command menu
 syntax on                                   " sets color of text based on category of terms
 
@@ -43,6 +50,7 @@ set smartcase                               " ... except when using capitals
 
 "  	      <|> PERSONAL <|>
 command! W write                            " vim should do this by default
-cmap w!! w !sudo tee %                      " save with root privileges (command-line)
 map /\ :noh                                 " redraw screen without highlighting 
-colorscheme sheatsley                       " use personal colorscheme
+colorscheme onedark                         " use one dark colortheme
+set guifont=DejaVu\ Sans\ Mono
+            \\ for\ Powerline               " use powerline font
