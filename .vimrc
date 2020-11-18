@@ -4,6 +4,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'               " The plugin-manager for Vim
 Plugin 'dense-analysis/ale'                 " Asynchronous lint engine
 Plugin 'psf/black'                          " The uncompromising Python code formatter'
+Plugin 'tpope/vim-dispatch'                 " Asynchronous build and test dispatcher
 Plugin 'preservim/nerdtree'                 " A tree explorer plugin for vim
 Plugin 'tpope/vim-fugitive'                 " A Git wrapper so awesome, it should be illegal
 Plugin 'joshdick/onedark.vim'               " A dark color scheme inspired by Atom's One Dark
