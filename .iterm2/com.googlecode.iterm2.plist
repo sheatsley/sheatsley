@@ -420,9 +420,9 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>462 434 799 448 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1431 768 620 392 0 0 3440 1417 </string>
+	<string>552 476 620 392 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>57 0 850 1027 0 0 1680 1027 </string>
+	<string>43 1 1095 1025 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1684 0 885 1027 1680 -390 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1142,6 +1142,8 @@
 				<dict>
 					<key>algorithm</key>
 					<integer>1</integer>
+					<key>auto-rainbow style</key>
+					<integer>0</integer>
 					<key>font</key>
 					<string>.AppleSystemUIFont 12</string>
 				</dict>
@@ -1205,6 +1207,13 @@
 									<key>Red Component</key>
 									<real>0.0</real>
 								</dict>
+							</dict>
+							<key>layout advanced configuration dictionary value</key>
+							<dict>
+								<key>algorithm</key>
+								<integer>1</integer>
+								<key>font</key>
+								<string>.AppleSystemUIFont 12</string>
 							</dict>
 							<key>registration request</key>
 							<data>
@@ -4358,7 +4367,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>621960709.07072699</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>26</integer>
+	<integer>27</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>613486555.658795</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -4368,7 +4377,7 @@
 	<key>NoSyncPersistentRateLimitedUpdates</key>
 	<dict>
 		<key>CheckForUpdatedPythonRuntime</key>
-		<real>626285682.35703504</real>
+		<real>626458486.32437897</real>
 	</dict>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
@@ -5248,13 +5257,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-11-03T11:13:44Z</date>
+	<date>2020-11-16T11:15:32Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>826978506</integer>
+	<integer>921601914</integer>
 	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
+	<true/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>SoundForEsc</key>
