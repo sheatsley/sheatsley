@@ -71,7 +71,7 @@ cask "vmware-fusion"
 cask "webex-meetings"
 cask "xquartz"
 cask "yubico-yubikey-manager"
-cask "zoomus"
+cask "zoom"
 cask "zotero"
 mas "Adblock Plus", id: 1432731683
 mas "Apple Configurator 2", id: 1037126344
