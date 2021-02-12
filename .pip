@@ -3,6 +3,7 @@ liac-arff
 matplotlib
 more-itertools
 mypy
+notebook
 numpy
 pandas
 pipupgrade
