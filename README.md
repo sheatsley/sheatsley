@@ -10,10 +10,11 @@ learning systems can be securely deployed in security-centric domains, such as
 network intrusion detection. My research has also extended to radiation
 detection, public cloud security, and privacy in Internet of Things.
 
-**🌐 Website:** [Ryan Sheatsley](https://sheatsley.me)
-**📧 Email:** [ryan@sheatsley.me](mailto:ryan@sheatsley.me)
-**📫 Address:** W378 Westgate Building, University Park, PA 16802, USA
-**📃 CV:** [CV](https://sheatsley.me/cv.pdf)
-**🎓 Google Scholar:** [Google Scholar](https://scholar.google.co.uk/citations?user=BIl9HXgAAAAJ&hl=en)
-**🐦 Twitter:** [@RyanSheatsley](https://twtter.com/ryansheatsley)
+**🌐 Website:** [Ryan Sheatsley](https://sheatsley.me)\
+**📧 Email:** [ryan@sheatsley.me](mailto:ryan@sheatsley.me)\
+**📫 Address:** W378 Westgate Building, University Park, PA 16802, USA\
+**📃 CV:** [CV](https://sheatsley.me/cv.pdf)\
+**🎓 Google Scholar:** [Google
+Scholar](https://scholar.google.co.uk/citations?user=BIl9HXgAAAAJ&hl=en)\
+**🐦 Twitter:** [@RyanSheatsley](https://twtter.com/ryansheatsley)\
 **🔑 Public Key:** [D97737F91189663C](https://sheatsley.me/public.gpg)
