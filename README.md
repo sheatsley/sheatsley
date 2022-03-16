@@ -1,6 +1,6 @@
-_Welcome!_ I am a Ph.D. student in the Department of Computer Science and
-Engineering at the [Pennsylvania State University](https://www.eecs.psu.edu). I
-am lead graduate student of the [Systems and Internet Infrastructure Security
+I am a Ph.D. student in the Department of Computer Science and Engineering at
+the [Pennsylvania State University](https://www.eecs.psu.edu). I am lead
+graduate student of the [Systems and Internet Infrastructure Security
 Laboratory](https://cybersecurity.psu.edu) and advised by [Prof. Patrick
 McDaniel](http://patrickmcdaniel.org).
 
