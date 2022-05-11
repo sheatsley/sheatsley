@@ -16,5 +16,5 @@ detection, public cloud security, and privacy in Internet of Things.
 **📃 CV:** [CV](https://sheatsley.me/cv.pdf)\
 **🎓 Google Scholar:** [Google
 Scholar](https://scholar.google.co.uk/citations?user=BIl9HXgAAAAJ&hl=en)\
-**🐦 Twitter:** [@RyanSheatsley](https://twtter.com/ryansheatsley)\
+**🐦 Twitter:** [@RyanSheatsley](https://twitter.com/ryansheatsley)\
 **🔑 Public Key:** [D97737F91189663C](https://sheatsley.me/public.gpg)
