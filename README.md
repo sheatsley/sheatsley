@@ -1,4 +1,4 @@
-I am a Ph.D. student in the [Department of Computer
+I am a Ph.D. candidate in the [Department of Computer
 Sciences](https://www.cs.wisc.edu) at the [University of
 Wisconsin-Madison](https://www.wisc.edu). I am member of
 [MadS&P](https://madsp.cs.wisc.edu) and advised by [Prof. Patrick
@@ -7,10 +7,14 @@ computer science and engineering from the [Pennsylvania State
 University](https://www.psu.edu).
 
 My research is at the intersection of computer security and machine learning. I
-investigate the risks of deploying machine learning systems in security-centric
-domains, how their robustness can be measured at scale, and their applications
-towards novel security problems. I also apply computer security principles to
-radiation detection, Internet measurement, and Internet of Things.
+investigate [the risks of deploying machine learning systems in
+security-centric domains](https://arxiv.org/abs/2105.08619), [how their
+robustness can be measured at scale](https://arxiv.org/abs/2209.04521), [and their applications towards novel security
+problems](https://arxiv.org/abs/2202.10387). I also apply computer security
+principles to [radiation
+detection](https://www.sciencedirect.com/science/article/abs/pii/S0168900222003643),
+[Internet measurement](https://arxiv.org/abs/2204.05122), and [Internet of
+Things](https://arxiv.org/abs/2201.09338).
 
 **🌐 Website:** [Ryan Sheatsley](https://sheatsley.me)\
 **📧 Email:** [ryan@sheatsley.me](mailto:ryan@sheatsley.me)\
