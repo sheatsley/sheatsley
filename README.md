@@ -19,7 +19,7 @@ Things](https://arxiv.org/abs/2201.09338).
 **🌐 Website:** [Ryan Sheatsley](https://sheatsley.me)\
 **📧 Email:** [ryan@sheatsley.me](mailto:ryan@sheatsley.me)\
 **📫 Address:** 1210 W. Dayton St., Room 2253, Madison, WI 53706, USA\
-**📃 CV:** [CV](https://sheatsley.me/cv.pdf)\
+**📃 CV:** [CV](https://sheatsley.me/sheatsley_cv.pdf)\
 **🎓 Google Scholar:** [Google
 Scholar](https://scholar.google.co.uk/citations?user=BIl9HXgAAAAJ&hl=en)\
 **🐦 Twitter:** [@RyanSheatsley](https://twitter.com/ryansheatsley)\
